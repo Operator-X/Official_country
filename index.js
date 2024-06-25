@@ -7,7 +7,7 @@ const genAI = new GoogleGenerativeAI(api_key);
 
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
 
-async function official_country_maker(countries) {
+export async function official_country_maker(countries) {
   prompt.push({text:`input: following the format from the above examples give official country names of [${countries}].the output must contain an array of the official names of the countries.the output must not contain any explaination`})
   const result = await model.generateContent(prompt);
   const response = await result.response;
